@@ -54,12 +54,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  width: 50%;
-}
-
-#todo-list {
+  width: 49.6%;
   margin: 0;
-  padding: 0;
+  padding: 0 ;
+ 
 }
 
 #todo-list li {
@@ -71,10 +69,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* border-radius:  40% 0 40%; */
 }
 
 #todo-list li:hover {
   background-color: #ccc;
 }
 
+.img-span {
+  /* display: flex; */
+  justify-content: center;
+  background-color: #aaa;
+  width: 49.6%;
+  height: 70vh;
+  float: right;
+  bottom: 294px;
+  position: relative;
+  padding-left: 1rem;
+}
 
