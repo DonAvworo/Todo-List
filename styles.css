@@ -69,8 +69,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border-radius:  40% 0 40%; */
+  transition: 0.2s;
+  /*this will make the list items unselectable*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
+#todo-list li:nth-child(even) {
+    background: #f9f9f9;
+  }
 
 #todo-list li:hover {
   background-color: #ccc;
