@@ -1,0 +1,16 @@
+// add a "checked" symbol when clicking on a list item
+let list = document.querySelector('ul');    // Get the unordered list in the document and store it in a variable called list
+
+list.addEventListener('click', function(ev) {  // Add a click event listener to the unordered list and do the following when a list item is clicked
+
+if (ev.target.tagName === 'LI') {             // If the target element of the click event is a list item, do the following
+
+ev.target.classList.toggle('checked');       // Toggle the class name of the target element between "checked" and "unchecked" //SEE NOTE-1 BELOW
+
+}
+
+}, false);   // The false parameter specifies that the event should be executed in the bubbling phase (not the capturing phase) //SEE NOTE-2 BELOW
+
+//NOTE-1: The class name of the target element is toggled between "checked" and "unchecked" when a list item is clicked. This is done by using the toggle() method of the classList property of the target element. The classList property returns the class name(s) of an element, as a DOMTokenList object. The toggle() method of the classList property toggles between a class name for an element. If the class already exists, the toggle() method removes it, and if it doesn't exist, the toggle() method adds it.
+
+//NOTE-2: EVENT PROPAGATION  - The false parameter specifies that the event should be executed in the bubbling phase (not the capturing phase). The bubbling phase is the default behavior of event propagation. In the bubbling phase, the event starts at the most specific node and then bubbles outwards to the least specific node. In the capturing phase, the event starts at the least specific node and then bubbles inwards to the most specific node. The capturing phase is rarely used.
