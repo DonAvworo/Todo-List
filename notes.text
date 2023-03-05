@@ -1,16 +1,113 @@
-// add a "checked" symbol when clicking on a list item
-let list = document.querySelector('ul');    // Get the unordered list in the document and store it in a variable called list
+//TODO - //NOTE-1 - .createTextNode() method and .appendChild() method 
 
-list.addEventListener('click', function(ev) {  // Add a click event listener to the unordered list and do the following when a list item is clicked
+    => the createTextNode() method creates a text node with the specified text.
+    => the appendChild() method appends a node as the last child of a node.
+    => the text node is not added to the document until it is appended to an element with the appendChild() method.
+    => the text node is added to the document as a child of the body element.
 
-if (ev.target.tagName === 'LI') {             // If the target element of the click event is a list item, do the following
+    => syntax: document.createTextNode(text); where;
+        - text: the text to be added to the text node.
+        - the node is not added to the document until it is appended to an element with the appendChild() method.
+    => example:
+        var text =  document.createTextNode("This is a text node");
+        document.body.appendChild(text);
 
-ev.target.classList.toggle('checked');       // Toggle the class name of the target element between "checked" and "unchecked" //SEE NOTE-1 BELOW
+    => the text node is added to the document as a child of the body element.
 
-}
+    in a nutshell, the createTextNode() method creates a text node with the specified text, 
+    and the appendChild() method appends a node as the last child of a node.
 
-}, false);   // The false parameter specifies that the event should be executed in the bubbling phase (not the capturing phase) //SEE NOTE-2 BELOW
+    //this will look like so in the html file:
 
-//NOTE-1: The class name of the target element is toggled between "checked" and "unchecked" when a list item is clicked. This is done by using the toggle() method of the classList property of the target element. The classList property returns the class name(s) of an element, as a DOMTokenList object. The toggle() method of the classList property toggles between a class name for an element. If the class already exists, the toggle() method removes it, and if it doesn't exist, the toggle() method adds it.
+    <body>
+        <script>
+            var text =  document.createTextNode("This is a text node");
+            document.body.appendChild(text);
+        </script>
+    </body>
 
-//NOTE-2: EVENT PROPAGATION  - The false parameter specifies that the event should be executed in the bubbling phase (not the capturing phase). The bubbling phase is the default behavior of event propagation. In the bubbling phase, the event starts at the most specific node and then bubbles outwards to the least specific node. In the capturing phase, the event starts at the least specific node and then bubbles inwards to the most specific node. The capturing phase is rarely used.
+    => the text node is added to the document as a child of the body element.
+    => the variable text is a text node with the text "This is a text node". 
+       which is done by using the createTextNode() method.
+    => the text node is appended to the body element by using the appendChild() method.
+
+//TODO  - //NOTE-2 - useCapture parameter
+
+    => the useCapture parameter is a boolean value that specifies whether the event should be executed in the capturing or bubbling phase.
+    => the default value is false, which specifies bubbling phase.
+    => the capturing phase is the first phase of the event flow.
+    => the bubbling phase is the second phase of the event flow.
+    => the capturing phase starts at the window object and moves down to the target element.
+    => the bubbling phase starts at the target element and moves up to the window object.
+
+    example of capturing phase:
+        <html>
+            <body>
+                <div>
+                    <p>Click me!</p>
+                </div>
+            </body>
+        </html>
+
+    => the window object is the parent of the body element.
+    => the body element is the parent of the div element.
+    => the div element is the parent of the p element.
+    => the p element is the target element.
+    => the event listener is added to the p element.
+    => the event listener is executed in the capturing phase.
+    => the event listener is executed when the p element is clicked.
+
+    example of bubbling phase:
+        <html>
+            <body>
+                <div>
+                    <p>Click me!</p>
+                </div>
+            </body>
+        </html>
+
+    => the window object is the parent of the body element.
+    => the body element is the parent of the div element.
+    => the div element is the parent of the p element.
+    => the p element is the target element.
+    => the event listener is added to the p element.
+    => the event listener is executed in the bubbling phase.
+    => the event listener is executed when the p element is clicked.
+
+    
+    => the useCapture parameter is optional.
+
+
+    => syntax: element.addEventListener(event, function, useCapture); where;
+        - event: the name of the event.
+        - function: the function to be executed when the event occurs.
+        - useCapture: a boolean value that specifies whether the event should be executed in the capturing or bubbling phase.
+    => example:
+        document.addEventListener("click", function(){
+            alert("Hello World!");
+        }, true);
+
+    => the event listener is added to the document object.
+    => the event listener is executed in the capturing phase.
+    => the event listener is executed when the document is clicked.
+
+    in a nutshell, the useCapture parameter is a boolean value that specifies whether the event should be executed in the capturing or bubbling phase.
+
+    //this will look like so in the html file:
+
+    <body>
+        <script>
+            document.addEventListener("click", function(){
+                alert("Hello World!");
+            }, true);
+        </script>
+    </body>
+
+    => the event listener is added to the document object.
+    => the event listener is executed in the capturing phase.
+    => the event listener is executed when the document is clicked.
+
+
+       
+
+

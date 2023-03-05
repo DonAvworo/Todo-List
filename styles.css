@@ -103,13 +103,13 @@ body {
 }
 
 .close {
-  color: #aaa;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+    color: #aaa;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px; 
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .close:hover {
