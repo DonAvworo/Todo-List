@@ -29,7 +29,7 @@ function newElement() {                                 // Define the newElement
     let t = document.createTextNode(inputValue);        // Create a text node that contains the value of the input field and store it in a variable called t
     li.appendChild(t);                                  // Append the text node to the list item
     if (inputValue === '') {                            // If the input field is empty, do the following
-        alert("You must write something!");             // Display an alert message
+        alert("Please Enter a Todo Title!");             // Display an alert message
     } else {                                            // If the input field is not empty, do the following
         document.getElementById("todo-list").appendChild(li); // Append the list item to the unordered list
     }
@@ -51,38 +51,15 @@ function newElement() {                                 // Define the newElement
     //stop the button from submitting the ul element
     event.preventDefault();
 
-    //add a completed class to the list item when it is clicked
-    let list = document.querySelector('ul');            // Get the unordered list and store it in a variable called list
-    list.addEventListener('click', function(ev) {       // Add an event listener to the unordered list. When a list item is clicked, do the following
-        if (ev.target.tagName === 'LI') {               // If the target of the click event is a list item, do the following
-            ev.target.classList.toggle('completed');    // Toggle the completed class on the list item that was clicked on 
-        }
-    }, false);                                         // Set the useCapture parameter to false so that the event is handled in the bubbling phase //SEE notes.test NOTE - 2
+    //delete all list items
+    
+    let deleteAllList = document.getElementById("delete-all"); // Get the unordered list and store it in a variable called list
+    deleteAllList.addEventListener("click", deleteAll); // Add an event listener to the delete all button. When the delete all button is clicked, call the deleteAll function
 
-    //add a delete all button to the page
-    let deleteAllBtn = document.createElement("button"); // Create a button element and store it in a variable called deleteAllBtn
-    let deleteAllBtnText = document.createTextNode("Delete All"); // Create a text node that contains the text "Delete All" and store it in a variable called deleteAllBtnText
-    deleteAllBtn.appendChild(deleteAllBtnText);        // Append the text node to the button element
-    document.body.appendChild(deleteAllBtn);           // Append the button element to the body element
 
-    //add an event listener to the delete all button
-    deleteAllBtn.addEventListener("click", deleteAll); // Add an event listener to the delete all button. When the delete all button is clicked, call the deleteAll function
-
-    //define the deleteAll function
     function deleteAll() {                              // Define the deleteAll function
         let list = document.getElementById("todo-list"); // Get the unordered list and store it in a variable called list
-        list.innerHTML = "";                            // Set the innerHTML of the unordered list to an empty string
+        list.style.display = "none";                           // Set the innerHTML of the unordered list to an empty string
     }
 
-    // add a class to the delete all button when the mouse hovers over it
-    deleteAllBtn.addEventListener("mouseover", function() { // Add an event listener to the delete all button. When the mouse hovers over the delete all button, do the following
-        deleteAllBtn.classList.add("hover");              // Add the hover class to the delete all button
-    });
-
-
-
-
-        
-
 }
-
