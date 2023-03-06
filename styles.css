@@ -102,14 +102,24 @@ body {
     top: 212px;
 }
 
+/* this is for the checked items in the list */
+.checked {
+  text-decoration: line-through;
+  color: #4CAF50;
+
+}
+
 .close {
-    color: #aaa;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px; 
-    cursor: pointer;
-    transition: 0.3s;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .close:hover {

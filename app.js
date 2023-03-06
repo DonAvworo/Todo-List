@@ -16,9 +16,15 @@ for (let i = 0; i < close.length; i++) {                // Loop through the clos
     div.style.display = "none";                         // Set the display style of the parent element to "none" so that it is hidden
     }
 }
+//click on the div element to add a check mark to the list item
+let list = document.querySelector('ul');               // Get the unordered list and store it in a variable called list
+list.addEventListener('click', function(ev) {           // Add an event listener to the unordered list. When a list item is clicked, do the following
+    if (ev.target.tagName === 'LI') {                   // If the target element is a list item, do the following
+        ev.target.classList.toggle('checked');          // Toggle the class name of the target element. If the class name is "checked", remove it. If the class name is not "checked", add it
+    }
+}, false);
 
 // create a new list item when clicking on the "Add" button
-
 let addBtn = document.getElementById("btn");            // Get the add button in the document and store it in a variable called addBtn
 addBtn.addEventListener("click", newElement);           // Add an event listener to the add button. When the add button is clicked, call the newElement function
 
@@ -47,19 +53,20 @@ function newElement() {                                 // Define the newElement
         div.style.display = "none";                     // Set the display style of the parent element to "none" so that it is hidden
         }
     }
-
     //stop the button from submitting the ul element
     event.preventDefault();
-
-    //delete all list items
-    
-    let deleteAllList = document.getElementById("delete-all"); // Get the unordered list and store it in a variable called list
-    deleteAllList.addEventListener("click", deleteAll); // Add an event listener to the delete all button. When the delete all button is clicked, call the deleteAll function
-
-
-    function deleteAll() {                              // Define the deleteAll function
-        let list = document.getElementById("todo-list"); // Get the unordered list and store it in a variable called list
-        list.style.display = "none";                           // Set the innerHTML of the unordered list to an empty string
-    }
-
 }
+
+//delete all list items   
+let deleteAllList = document.getElementById("delete-all"); // Get the unordered list and store it in a variable called list
+deleteAllList.addEventListener("click", deleteAll); // Add an event listener to the delete all button. When the delete all button is clicked, call the deleteAll function
+
+
+function deleteAll() {                                  // Define the deleteAll function
+    // alert ("Clicked");                               // Display an alert message
+    let li = document.getElementsByTagName("li");       // Get all the list items in the document and store them in a variable called li
+    for (let i = 0; i < li.length; i++) {               // Loop through the list items and add a click event listener to each one of them
+        li[i].style.display = "none";                   // Set the display style of the list items to "none" so that they are hidden
+        
+    }
+};
