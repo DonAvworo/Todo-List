@@ -53,7 +53,8 @@ function newElement() {                                 // Define the newElement
         div.style.display = "none";                     // Set the display style of the parent element to "none" so that it is hidden
         }
     }
-    //stop the button from submitting the ul element
+
+    //stop the button from submitting the ul element (propagation)
     event.preventDefault();
 }
 
@@ -61,12 +62,11 @@ function newElement() {                                 // Define the newElement
 let deleteAllList = document.getElementById("delete-all"); // Get the unordered list and store it in a variable called list
 deleteAllList.addEventListener("click", deleteAll); // Add an event listener to the delete all button. When the delete all button is clicked, call the deleteAll function
 
-
 function deleteAll() {                                  // Define the deleteAll function
     // alert ("Clicked");                               // Display an alert message
     let li = document.getElementsByTagName("li");       // Get all the list items in the document and store them in a variable called li
     for (let i = 0; i < li.length; i++) {               // Loop through the list items and add a click event listener to each one of them
         li[i].style.display = "none";                   // Set the display style of the list items to "none" so that they are hidden
-        
+
     }
 };

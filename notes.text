@@ -107,7 +107,3 @@
     => the event listener is executed in the capturing phase.
     => the event listener is executed when the document is clicked.
 
-
-       
-
-
