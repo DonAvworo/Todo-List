@@ -34,9 +34,21 @@ list.addEventListener('click', function(ev) {          // Add an event listener 
 let addBtn = document.getElementById("btn");            // Get the add button in the document and store it in a variable called addBtn
 addBtn.addEventListener("click", newElement);           // Add an event listener to the add button. When the add button is clicked, call the newElement function
 
-function newElement() {                                 // Define the newElement function 
+//Get image from dalle-e api and display it on the page
+
+
+
+
+function newElement(event) {                                 // Define the newElement function 
     // alert("Hello World!");                           // Display an alert message (for testing purposes only)
     
+    //GET THE DALLE-E API
+
+    const apiKey = "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";
+    const apiUrl = "https://api.openai.com/v1/images/generations";
+
+
+
     //create a new list item
     let li = document.createElement("li");              // Create a new list item and store it in a variable called li
     let inputValue = document.getElementById("userInput").value; // Get the value of the input field and store it in a variable called inputValue
@@ -68,7 +80,7 @@ function newElement() {                                 // Define the newElement
     
     //NOTE 
     //to solve the problem of deprecated event in javascript the type attribute in the FORM is changed from submit to button IN THE HTML FILE
-
+    
 };
 
 //delete all list items   
