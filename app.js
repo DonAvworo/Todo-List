@@ -1,3 +1,5 @@
+
+
 //add a close button to each list item by using appendChild() and createTextNode() methods //SEE notes.test NOTE - 1 
 let closeIcon = document.getElementsByTagName("li");    // Get all the list items in the document and store them in a variable
 
@@ -36,18 +38,16 @@ addBtn.addEventListener("click", newElement);           // Add an event listener
 
 //Get image from dalle-e api and display it on the page
 
+//import api from .env file
 
 
 
-function newElement(event) {                                 // Define the newElement function 
+
+function newElement(event) {                            // Define the newElement function 
     // alert("Hello World!");                           // Display an alert message (for testing purposes only)
     
-    //GET THE DALLE-E API
-
-    const apiKey = "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";
-    const apiUrl = "https://api.openai.com/v1/images/generations";
-
-
+    // const generateImage = require('./server.js');       //import the generateImage function from the server.js file
+    // generateImage();                                    //call the generateImage function
 
     //create a new list item
     let li = document.createElement("li");              // Create a new list item and store it in a variable called li

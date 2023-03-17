@@ -4,12 +4,12 @@
 
 body {
   height: 100vh;
-}
+} 
 
 .header {
   background-color: #f4e1e1;
   padding: 20px;
-  text-align: center;
+  text-align: center;  
 }
 
 .header h1 {
